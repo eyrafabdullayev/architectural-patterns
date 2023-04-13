@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: order-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVER:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+  datasource:
+    username: postgres
+    password: mysecretpassword
+    url: jdbc:postgresql://localhost:5433/postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        hbm2ddl:
+          auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+
+app:
+  kafka:
+    inventory:
+      groupIdConfig: 535e9066-d9d4-11ed-afa1-0242ac120002
+    payment:
+      groupIdConfig: 17541169-33af-41d3-b808-3ff2588e1531
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /order-service

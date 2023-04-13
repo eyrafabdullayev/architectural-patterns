@@ -1,0 +1,18 @@
+1. Start the kafka environment with topics such as order-service, inventory-service, payment-service ( default: bootstrapbrokers: localhost:9092 or change the code manually )
+
+2. docker run --name some-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5433:5432 -d postgres
+
+3. Insert some dummy data into tables named as user_balance, order_inventory
+
+4. Run the following curl request, after getting a response, see the log simultaneously
+
+POST /order-service/order HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 58
+
+{
+    "userId": 1,
+    "productId": 1,
+    "quantity": 2
+}

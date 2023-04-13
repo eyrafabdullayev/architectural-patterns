@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: payment-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVER:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: postgres
+    password: mysecretpassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: create-drop
+        show_sql: true
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+
+app:
+  kafka:
+    groupIdConfig: 18780a14-6966-4cf9-b99a-4cd44d4310b5
+
+server:
+  port: 8090
+  servlet:
+    context-path: /payment-service
+
