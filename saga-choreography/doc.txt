@@ -1,6 +1,6 @@
 1. Start the kafka environment with topics such as order-service, inventory-service, payment-service ( default: bootstrapbrokers: localhost:9092 or change the code manually )
 
-2. docker run --name some-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5433:5432 -d postgres
+2. run docker run --name some-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5433:5432 -d postgres command, or setup postgresql environment in your machine
 
 3. Insert some dummy data into tables named as user_balance, order_inventory
 
